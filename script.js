@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
+    // 1. Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -10,69 +10,69 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
+    // 2. Interactive Showcase Tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            tabBtns.forEach(b => b.classList.remove('active'));
+            tabPanes.forEach(p => p.classList.remove('active'));
+
+            // Add active class to clicked
+            btn.classList.add('active');
+            const targetId = btn.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+
+            // Optional: trigger mini animation for charts/elements inside the active tab
+            if(targetId === 'tab-analytics') {
+                animateCharts();
             }
         });
     });
 
-    // Parallax effect for background shapes
-    const shapes = document.querySelectorAll('.bg-shape');
-    
-    document.addEventListener('mousemove', (e) => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 20;
-            const xOffset = (window.innerWidth / 2 - e.pageX) / speed;
-            const yOffset = (window.innerHeight / 2 - e.pageY) / speed;
-            
-            // Apply a subtle translation without overwriting the CSS animation completely
-            // We use style.transform, but remember CSS animation also uses transform.
-            // A better approach is to adjust margins or left/top for parallax.
-            
-            if(index === 0) {
-                shape.style.right = `calc(-100px + ${xOffset}px)`;
-                shape.style.top = `calc(-100px + ${yOffset}px)`;
-            } else {
-                shape.style.left = `calc(-200px + ${xOffset}px)`;
-                shape.style.bottom = `calc(20% + ${yOffset}px)`;
+    // 3. Chart Animation logic (Analytics tab)
+    function animateCharts() {
+        const bars = document.querySelectorAll('.chart-mockup .bar');
+        bars.forEach(bar => {
+            // Temporarily set height to 0
+            const originalClass = Array.from(bar.classList).find(c => c.startsWith('h-'));
+            if(originalClass) {
+                const heightVal = originalClass.split('-')[1] + '%';
+                bar.style.height = '0%';
+                setTimeout(() => {
+                    bar.style.height = heightVal;
+                }, 100);
             }
         });
-    });
-    
-    // Add simple entrance animation for feature cards
+    }
+
+    // 4. Scroll Reveal Animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
     };
-    
-    const observer = new IntersectionObserver((entries) => {
+
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-    
-    document.querySelectorAll('.feature-card').forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.5s ease ${index * 0.1}s`;
-        observer.observe(card);
+
+    fadeElements.forEach(el => {
+        fadeObserver.observe(el);
     });
+
+    // Run chart animation once if analytics is active by default (it's not, overview is, but just in case)
+    const activePane = document.querySelector('.tab-pane.active');
+    if(activePane && activePane.id === 'tab-analytics') {
+        animateCharts();
+    }
 });

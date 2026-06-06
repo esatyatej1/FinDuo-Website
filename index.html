@@ -8,28 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Background Elements -->
     <div class="bg-shape bg-shape-1"></div>
     <div class="bg-shape bg-shape-2"></div>
+    <div class="bg-shape bg-shape-3"></div>
 
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">FD</div>
+                <div class="logo-icon"><i class="ph ph-wallet"></i></div>
                 <span>FinDuo</span>
             </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#analytics">Analytics</a>
+                <a href="#showcase">Platform</a>
                 <a href="#security">Security</a>
+                <a href="#integration">Integrations</a>
             </div>
             <div class="nav-actions">
-                <a href="#" class="btn btn-secondary">Login</a>
-                <a href="#" class="btn btn-primary">Get Started</a>
+                <a href="https://finduo.qzz.io/api/docs" target="_blank" class="btn btn-secondary">API Docs</a>
+                <a href="#" class="btn btn-primary">Get App</a>
             </div>
         </div>
     </nav>
@@ -37,158 +40,361 @@
     <!-- Hero Section -->
     <header class="hero">
         <div class="hero-content">
-            <div class="badge">✨ Real-time Financial Tracking</div>
-            <h1 class="hero-title">Master Your Money with <span class="text-gradient">FinDuo</span></h1>
+            <div class="badge"><i class="ph ph-sparkle"></i> Live Native Syncing Architecture</div>
+            <h1 class="hero-title">Elevate Your Finances with <span class="text-gradient">FinDuo</span></h1>
             <p class="hero-subtitle">
-                Experience the next generation of personal finance. Track transactions, manage bills, and visualize your wealth in a beautifully designed, secure platform.
+                The enterprise-grade personal finance ecosystem. Seamlessly track transactions, monitor live balances, manage bills, and converse with an AI assistant—all within a stunning, dynamically converting platform.
             </p>
             <div class="hero-cta">
-                <a href="#" class="btn btn-primary btn-lg">Start Free Trial</a>
-                <a href="#features" class="btn btn-secondary btn-lg btn-outline">Explore Features</a>
+                <a href="#showcase" class="btn btn-primary btn-lg"><i class="ph ph-rocket-launch"></i> Explore Platform</a>
+                <a href="#integration" class="btn btn-secondary btn-lg btn-outline"><i class="ph ph-plugs-connected"></i> View Integrations</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-num text-gradient">PhonePe</span>
+                    <span class="stat-text">Auto-Sync</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num text-gradient">AI</span>
+                    <span class="stat-text">Powered Insights</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num text-gradient">Global</span>
+                    <span class="stat-text">Currencies</span>
+                </div>
             </div>
         </div>
         <div class="hero-visual">
-            <div class="glass-panel app-mockup">
+            <div class="glass-panel app-mockup main-mockup">
                 <div class="mockup-header">
                     <div class="user-greeting">
-                        <div class="avatar"></div>
+                        <div class="avatar"><img src="https://ui-avatars.com/api/?name=Alex+S&background=random" alt="User"></div>
                         <div>
-                            <div class="greeting-text">Good Morning</div>
+                            <div class="greeting-text">Welcome Back</div>
                             <div class="user-name">Alex Smith</div>
                         </div>
                     </div>
-                    <div class="notification-icon">🔔</div>
+                    <div class="notification-icon badge-active"><i class="ph ph-bell"></i></div>
                 </div>
                 <div class="balance-card">
-                    <div class="balance-label">Total Balance</div>
+                    <div class="balance-header">
+                        <span class="balance-label">Total Balance</span>
+                        <div class="currency-selector">USD <i class="ph ph-caret-down"></i></div>
+                    </div>
                     <div class="balance-amount">$24,562.00</div>
-                    <div class="balance-trend positive">+12.5% this month</div>
+                    <div class="balance-trend positive"><i class="ph ph-trend-up"></i> +12.5% vs last month</div>
                 </div>
-                <div class="quick-stats">
-                    <div class="stat-box">
-                        <div class="stat-icon income-icon">↓</div>
-                        <div class="stat-details">
-                            <div class="stat-label">Income</div>
-                            <div class="stat-value">$8,240</div>
+                <div class="mockup-section-title">Recent Transactions</div>
+                <div class="tx-list">
+                    <div class="tx-item">
+                        <div class="tx-icon received"><i class="ph ph-arrow-down-left"></i></div>
+                        <div class="tx-details">
+                            <div class="tx-title">Salary Deposit</div>
+                            <div class="tx-time">Today, 09:00 AM</div>
                         </div>
+                        <div class="tx-amt positive">+$4,200.00</div>
                     </div>
-                    <div class="stat-box">
-                        <div class="stat-icon expense-icon">↑</div>
-                        <div class="stat-details">
-                            <div class="stat-label">Expenses</div>
-                            <div class="stat-value">$3,120</div>
+                    <div class="tx-item">
+                        <div class="tx-icon sent"><i class="ph ph-arrow-up-right"></i></div>
+                        <div class="tx-details">
+                            <div class="tx-title">Netflix Subscription</div>
+                            <div class="tx-time">Yesterday</div>
                         </div>
+                        <div class="tx-amt negative">-$15.99</div>
                     </div>
                 </div>
             </div>
             
-            <div class="glass-panel floating-card card-1">
-                <div class="tx-icon netflix-icon">N</div>
-                <div class="tx-info">
-                    <div class="tx-title">Netflix Subscription</div>
-                    <div class="tx-time">Today, 10:00 AM</div>
+            <div class="glass-panel floating-card ai-card">
+                <div class="ai-header">
+                    <i class="ph-fill ph-magic-wand text-gradient"></i> AI Assistant
                 </div>
-                <div class="tx-amount negative">-$15.99</div>
+                <div class="ai-msg user">How is my spending this week?</div>
+                <div class="ai-msg bot">Your spending is 15% lower than last week! You've saved $120 mostly on dining out. Keep it up! 🚀</div>
             </div>
             
-            <div class="glass-panel floating-card card-2">
-                <div class="tx-icon salary-icon">$</div>
-                <div class="tx-info">
-                    <div class="tx-title">Salary Deposit</div>
-                    <div class="tx-time">Yesterday</div>
+            <div class="glass-panel floating-card sync-card">
+                <div class="sync-icon"><i class="ph-fill ph-check-circle"></i></div>
+                <div class="sync-info">
+                    <div class="sync-title">PhonePe Synced</div>
+                    <div class="sync-desc">3 new transactions fetched</div>
                 </div>
-                <div class="tx-amount positive">+$4,200.00</div>
             </div>
         </div>
     </header>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="section-header">
-            <h2 class="section-title">Everything you need to <span class="text-gradient">succeed</span></h2>
-            <p class="section-subtitle">Powerful tools wrapped in a beautiful interface, designed to give you complete control over your finances.</p>
+    <!-- Features Overview -->
+    <section id="features" class="features section-padding">
+        <div class="section-header fade-in">
+            <div class="badge">Comprehensive Toolkit</div>
+            <h2 class="section-title">Everything you need, <span class="text-gradient">reimagined</span></h2>
+            <p class="section-subtitle">We engineered FinDuo from the ground up to provide a truly seamless, automated, and intelligent financial tracking experience.</p>
         </div>
         
         <div class="features-grid">
-            <div class="feature-card glass-panel">
-                <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Smart Analytics</h3>
-                <p class="feature-desc">Visualize your spending patterns with interactive charts and deep-dive analytics that help you make better decisions.</p>
+            <div class="feature-card glass-panel fade-in delay-1">
+                <div class="feature-icon"><i class="ph ph-arrows-left-right"></i></div>
+                <h3 class="feature-title">Live Transaction Sync</h3>
+                <p class="feature-desc">Automated integration with Google Pay and PhonePe notifications. Incoming and outgoing flows are instantly parsed and categorized.</p>
             </div>
             
-            <div class="feature-card glass-panel">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Real-Time Sync</h3>
-                <p class="feature-desc">Your financial data is updated instantly across all your devices, ensuring you always have the latest information.</p>
+            <div class="feature-card glass-panel fade-in delay-2">
+                <div class="feature-icon"><i class="ph ph-chart-line-up"></i></div>
+                <h3 class="feature-title">Deep Analytics</h3>
+                <p class="feature-desc">Interactive charts comparing daily, monthly, and category-based expenditures. Instantly visualize exactly where your money goes.</p>
             </div>
             
-            <div class="feature-card glass-panel">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Goal Tracking</h3>
-                <p class="feature-desc">Set custom financial goals and track your progress automatically with smart milestone notifications.</p>
+            <div class="feature-card glass-panel fade-in delay-3">
+                <div class="feature-icon"><i class="ph ph-robot"></i></div>
+                <h3 class="feature-title">AI Chat Assistant</h3>
+                <p class="feature-desc">Ask complex questions about your finances. FinDuo's AI analyzes your data securely and provides personalized insights in real-time.</p>
             </div>
             
-            <div class="feature-card glass-panel">
-                <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">Bank-Grade Security</h3>
-                <p class="feature-desc">Your data is protected with state-of-the-art encryption and advanced security protocols.</p>
+            <div class="feature-card glass-panel fade-in delay-1">
+                <div class="feature-icon"><i class="ph ph-currency-circle-dollar"></i></div>
+                <h3 class="feature-title">Global Currencies</h3>
+                <p class="feature-desc">Traveling? FinDuo natively supports dynamic, real-time conversion rates across all your dashboards and transaction histories.</p>
             </div>
             
-            <div class="feature-card glass-panel">
-                <div class="feature-icon">🌍</div>
-                <h3 class="feature-title">Multi-Currency</h3>
-                <p class="feature-desc">Seamlessly handle multiple currencies with real-time conversion rates built directly into the platform.</p>
+            <div class="feature-card glass-panel fade-in delay-2">
+                <div class="feature-icon"><i class="ph ph-calendar-check"></i></div>
+                <h3 class="feature-title">Bills & Loans Tracking</h3>
+                <p class="feature-desc">Never miss an EMI. Advanced tracking visually highlights 'Paid' vs 'Pending' obligations against your monthly schedule.</p>
             </div>
             
-            <div class="feature-card glass-panel">
-                <div class="feature-icon">🤖</div>
-                <h3 class="feature-title">AI Assistant</h3>
-                <p class="feature-desc">Get personalized financial insights and advice powered by advanced artificial intelligence.</p>
+            <div class="feature-card glass-panel fade-in delay-3">
+                <div class="feature-icon"><i class="ph ph-shield-check"></i></div>
+                <h3 class="feature-title">Enterprise Security</h3>
+                <p class="feature-desc">Secured via Google Authentication, strict Role-Based Access Control (RBAC), and routed through zero-trust Cloudflare Tunnels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Showcase -->
+    <section id="showcase" class="showcase-section section-padding">
+        <div class="section-header fade-in">
+            <h2 class="section-title">Inside the <span class="text-gradient">Platform</span></h2>
+            <p class="section-subtitle">Experience the sleek, functional interface designed to make money management feel effortless.</p>
+        </div>
+
+        <div class="showcase-container glass-panel fade-in">
+            <div class="showcase-tabs">
+                <button class="tab-btn active" data-target="tab-overview"><i class="ph ph-squares-four"></i> Overview</button>
+                <button class="tab-btn" data-target="tab-analytics"><i class="ph ph-chart-bar"></i> Analytics</button>
+                <button class="tab-btn" data-target="tab-bills"><i class="ph ph-receipt"></i> Bills & Loans</button>
+                <button class="tab-btn" data-target="tab-ai"><i class="ph ph-sparkle"></i> AI Chat</button>
+            </div>
+            <div class="showcase-content">
+                <!-- Overview Tab -->
+                <div class="tab-pane active" id="tab-overview">
+                    <div class="pane-split">
+                        <div class="pane-info">
+                            <h3>A Dashboard that understands you</h3>
+                            <p>Get a bird's-eye view of your entire financial landscape. Real-time bank balances, upcoming commitments, and recent activity all organized beautifully.</p>
+                            <ul class="feature-list">
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Dynamic net worth calculations</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Bank-specific categorization</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> One-tap transaction entry</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual ui-mockup">
+                            <div class="ui-header">Dashboard Overview</div>
+                            <div class="ui-cards-grid">
+                                <div class="ui-card">
+                                    <div class="card-label">HDFC Bank</div>
+                                    <div class="card-val">$12,450</div>
+                                </div>
+                                <div class="ui-card">
+                                    <div class="card-label">Chase</div>
+                                    <div class="card-val">$8,100</div>
+                                </div>
+                            </div>
+                            <div class="ui-list">
+                                <div class="ui-list-item">
+                                    <span>Amazon Purchase</span>
+                                    <span class="negative">-$45.00</span>
+                                </div>
+                                <div class="ui-list-item">
+                                    <span>Freelance Tech</span>
+                                    <span class="positive">+$850.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Tab -->
+                <div class="tab-pane" id="tab-analytics">
+                    <div class="pane-split">
+                        <div class="pane-info">
+                            <h3>Deep dive into your habits</h3>
+                            <p>Visual graphs automatically break down your spending. Find out exactly where your money goes with beautifully rendered, interactive charts.</p>
+                            <ul class="feature-list">
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Time-series spending analysis</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Category breakdown</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Custom date range filters</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual ui-mockup">
+                            <div class="ui-header">Analytics</div>
+                            <div class="chart-mockup">
+                                <div class="bar h-60"></div>
+                                <div class="bar h-40"></div>
+                                <div class="bar h-80"></div>
+                                <div class="bar h-30"></div>
+                                <div class="bar h-90"></div>
+                                <div class="bar h-50"></div>
+                                <div class="bar h-70"></div>
+                            </div>
+                            <div class="chart-legend">
+                                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bills Tab -->
+                <div class="tab-pane" id="tab-bills">
+                    <div class="pane-split">
+                        <div class="pane-info">
+                            <h3>Smart obligation tracking</h3>
+                            <p>FinDuo automatically cross-references your transactions against your monthly bills and EMIs, marking them as Paid or Pending instantly.</p>
+                            <ul class="feature-list">
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Auto-detection of payments</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Color-coded status indicators</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Upcoming due alerts</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual ui-mockup">
+                            <div class="ui-header">Monthly Obligations</div>
+                            <div class="bill-item status-paid">
+                                <div class="bill-info">
+                                    <h4>Home Loan EMI</h4>
+                                    <span>Due: 5th of Month</span>
+                                </div>
+                                <div class="bill-status">
+                                    <span class="badge badge-success">Paid</span>
+                                    <strong>$1,200</strong>
+                                </div>
+                            </div>
+                            <div class="bill-item status-pending">
+                                <div class="bill-info">
+                                    <h4>Electricity Bill</h4>
+                                    <span>Due: 12th of Month</span>
+                                </div>
+                                <div class="bill-status">
+                                    <span class="badge badge-warning">Pending</span>
+                                    <strong>$145</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Tab -->
+                <div class="tab-pane" id="tab-ai">
+                    <div class="pane-split">
+                        <div class="pane-info">
+                            <h3>Your personal financial analyst</h3>
+                            <p>Chat directly with your financial data. The AI Assistant securely reads your transaction history to answer queries, summarize spending, and offer advice.</p>
+                            <ul class="feature-list">
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Natural language querying</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Instant summaries & insights</li>
+                                <li><i class="ph-fill ph-check-circle text-gradient"></i> Zero-retention privacy protocol</li>
+                            </ul>
+                        </div>
+                        <div class="pane-visual ui-mockup chat-ui">
+                            <div class="chat-header"><i class="ph-fill ph-magic-wand"></i> FinDuo AI</div>
+                            <div class="chat-body">
+                                <div class="msg bot">Hello! How can I help you analyze your finances today?</div>
+                                <div class="msg user">How much did I spend on food this month?</div>
+                                <div class="msg bot">You've spent <strong>$450</strong> on food and dining this month, which is 10% below your usual average. Great job!</div>
+                            </div>
+                            <div class="chat-input-mock">
+                                <span>Ask anything...</span>
+                                <i class="ph-fill ph-paper-plane-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section id="integration" class="integrations section-padding">
+        <div class="integrations-container glass-panel fade-in">
+            <div class="integ-content">
+                <h2 class="section-title">Seamlessly <span class="text-gradient">Integrated</span></h2>
+                <p class="section-subtitle" style="text-align: left; margin: 0 0 24px 0;">FinDuo connects with the services you already use to automate your tracking.</p>
+                <div class="integ-badges">
+                    <div class="integ-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google"> Google Auth</div>
+                    <div class="integ-badge"><i class="ph-fill ph-device-mobile" style="color: #673ab7;"></i> PhonePe Sync</div>
+                    <div class="integ-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="GPay"> Google Pay</div>
+                    <div class="integ-badge"><i class="ph-fill ph-cloud" style="color: #f6821f;"></i> Cloudflare Tunnel</div>
+                </div>
+            </div>
+            <div class="integ-visual">
+                <div class="pulse-ring"></div>
+                <div class="center-logo"><div class="logo-icon"><i class="ph ph-wallet"></i></div></div>
+                <div class="orbit-item oi-1"><i class="ph-fill ph-lock-key"></i></div>
+                <div class="orbit-item oi-2"><i class="ph-fill ph-bank"></i></div>
+                <div class="orbit-item oi-3"><i class="ph-fill ph-bell-ringing"></i></div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section fade-in">
         <div class="cta-container glass-panel">
-            <h2 class="cta-title">Ready to take control of your finances?</h2>
-            <p class="cta-desc">Join thousands of users who are already managing their money smarter with FinDuo.</p>
-            <a href="#" class="btn btn-primary btn-lg">Create Free Account</a>
+            <h2 class="cta-title">Take command of your financial destiny</h2>
+            <p class="cta-desc">Stop wondering where your money went. Start directing it with FinDuo's intelligent tracking platform.</p>
+            <div class="cta-actions">
+                <a href="#" class="btn btn-primary btn-lg"><i class="ph-fill ph-google-logo"></i> Sign in with Google</a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="security">
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="logo">
-                    <div class="logo-icon">FD</div>
+                    <div class="logo-icon"><i class="ph ph-wallet"></i></div>
                     <span>FinDuo</span>
                 </div>
-                <p class="footer-text">The premium personal finance companion designed for the modern world.</p>
+                <p class="footer-text">The premium, enterprise-grade personal finance ecosystem powered by AI and real-time native integrations.</p>
+                <div class="social-links">
+                    <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                    <a href="#"><i class="ph ph-github-logo"></i></a>
+                    <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
             </div>
             <div class="footer-links">
                 <div class="link-group">
-                    <h4>Product</h4>
-                    <a href="#">Features</a>
-                    <a href="#">Security</a>
-                    <a href="#">Pricing</a>
+                    <h4>Platform</h4>
+                    <a href="#features">Features</a>
+                    <a href="#showcase">Analytics</a>
+                    <a href="#showcase">AI Assistant</a>
+                    <a href="#integration">Integrations</a>
                 </div>
                 <div class="link-group">
-                    <h4>Company</h4>
-                    <a href="#">About Us</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Contact</a>
+                    <h4>Resources</h4>
+                    <a href="https://finduo.qzz.io/api/docs" target="_blank">API Documentation</a>
+                    <a href="#">Architecture</a>
+                    <a href="#">Security Model</a>
                 </div>
                 <div class="link-group">
                     <h4>Legal</h4>
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
+                    <a href="#">Data Handling</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 FinDuo. All rights reserved.</p>
+            <p>&copy; 2026 FinDuo. Powered by FastAPI & Flutter. All rights reserved.</p>
         </div>
     </footer>
 
